@@ -1,3 +1,27 @@
-<p>
-  items works!
-</p>
+<div class="container">
+  <h1 class="alert alert">{{ title }}</h1>
+  <h3 class="alert">{{desc}}</h3>
+
+  <ul class="alert alert-warning">
+    <li>{{sidebar.login}}</li>
+    <li>{{sidebar.logout}}</li>
+    <li>{{sidebar.profile}}</li>
+  </ul>
+  <br />
+  <form>
+    <label>Username: .</label><input type="text" name="username" [(ngModel)]="name" />
+      <label>Password: .</label><input type="text" name="password" [(ngModel)]="name" />
+      <button class="flex btn btn-warning" (click)="loginUser()">Login</button>
+  </form>
+  <br />
+  <button class="flex btn" (click)="toggleSettings()">{{showSettings ? "Hide" : "Show" }}</button>
+  <br />
+  <div *ngIf="showSettings">
+    <br />
+    <ul class="alert-success">
+      <li *ngFor="let settings of settings">
+        {{settings}}
+      </li>
+    </ul>
+  </div>
+</div>
