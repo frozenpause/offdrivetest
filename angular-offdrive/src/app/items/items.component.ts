@@ -10,7 +10,14 @@ export class ItemsComponent implements OnInit {
   desc: string;
   sidebar: object;
   settings: string[];
+  setting: string;
   showSettings: boolean;
+  username = 'Username';
+  password = 'Password';
+
+  addSett(setting){
+    this.settings.push(setting);
+  }
 
   constructor() {
     this.title = 'Drive',

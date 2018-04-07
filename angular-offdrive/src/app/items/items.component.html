@@ -7,11 +7,17 @@
     <li>{{sidebar.logout}}</li>
     <li>{{sidebar.profile}}</li>
   </ul>
+  <form (submit)="addSett(setting.value)">
+    <label>Description:</label><br />
+    <input type="text" value="submit" ng-show="false" #setting />
+  </form>
   <br />
   <form>
-    <label>Username: .</label><input type="text" name="username" [(ngModel)]="name" />
-      <label>Password: .</label><input type="text" name="password" [(ngModel)]="name" />
-      <button class="flex btn btn-warning" (click)="loginUser()">Login</button>
+    <label>Username: .</label>
+    <input type="text" name="username" [(ngModel)]="username" />
+    <label>Password: .</label>
+    <input type="text" name="password" [(ngModel)]="password" />
+    <button class="flex btn btn-warning" (click)="loginUser()">Login</button>
   </form>
   <br />
   <button class="flex btn" (click)="toggleSettings()">{{showSettings ? "Hide" : "Show" }}</button>
