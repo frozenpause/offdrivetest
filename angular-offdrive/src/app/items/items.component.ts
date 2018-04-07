@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PostsService } from '../services/posts.service';
+import { post } from 'selenium-webdriver/http';
 
 @Component({
   selector: 'app-items',
@@ -12,6 +14,8 @@ export class ItemsComponent implements OnInit {
   settings: string[];
   setting: string;
   showSettings: boolean;
+  Post: string[];
+  posts = this.Post;
   username = 'Username';
   password = 'Password';
 
@@ -19,7 +23,7 @@ export class ItemsComponent implements OnInit {
     this.settings.push(setting);
   }
 
-  constructor() {
+  constructor(private PostsService: PostsService) {
     this.title = 'Drive',
     this.desc = 'Office drive description',
     this.sidebar = {
@@ -29,6 +33,10 @@ export class ItemsComponent implements OnInit {
     }
     this.settings = ['edit','delete','rename'];
     this.showSettings = false;
+
+    this.PostsService.getPosts().subscribe(posts => {
+      this.posts = posts;
+    });
   }
   toggleSettings() {
     if (this.showSettings == true) {
@@ -37,8 +45,12 @@ export class ItemsComponent implements OnInit {
       this.showSettings = true;
     }
   }
-
   ngOnInit() {
+    interface Post {
+      id: number;
+      title: string;
+      body: string;
+    }
   }
 
 }
