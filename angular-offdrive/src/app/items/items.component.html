@@ -2,17 +2,20 @@
   <h1 class="alert alert">{{ title }}</h1>
   <h3 class="alert">{{desc}}</h3>
 
+  <form (submit)="submit(sett.value)">
+    <div>
+      <label for="sett">Add:</label>
+      <br />
+      <input type="text" #sett>
+    </div>
+  </form>
+
+  <br />
   <ul class="alert alert-warning">
     <li>{{sidebar.login}}</li>
     <li>{{sidebar.logout}}</li>
     <li>{{sidebar.profile}}</li>
   </ul>
-  
-  <form (submit)="addSett(setting.value)">
-    <label>Description:</label>
-    <br />
-    <input type="text" value="submit" ng-show="false" #setting />
-  </form>
 
   <br />
   <form>
@@ -29,16 +32,17 @@
   <div *ngIf="showSettings">
     <br />
     <ul class="alert-success">
-      <li *ngFor="let settings of settings">
-        {{settings}}
+      <li *ngFor="let setting of settings">
+        {{setting}} <button (click)="delete(setting)">x</button>
       </li>
     </ul>
   </div>
 
   <hr />
-  <h3> Posts </h3>
+  <h1> Posts </h1>
   <div *ngFor="let post of posts">
-    <h3>{{post.title}}</h3>
+    <h4>{{post.title}}</h4>
     <p>{{post.body}}</p>
+    <p>{{post.userId}}</p>
   </div>
 </div>

@@ -3,9 +3,9 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class PostsService {
+export class DataService {
   constructor(private http: Http){
-    console.log('Working..');
+    console.log('Data: Working..');
   }
   getPosts(){
     return this.http.get('https://jsonplaceholder.typicode.com/posts')

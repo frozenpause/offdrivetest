@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PostsService } from '../services/posts.service';
+import { DataService } from '../services/data.service';
 import { post } from 'selenium-webdriver/http';
 
 @Component({
@@ -12,18 +12,13 @@ export class ItemsComponent implements OnInit {
   desc: string;
   sidebar: object;
   settings: string[];
-  setting: string;
-  showSettings: boolean;
-  Post: string[];
-  posts = this.Post;
+  sett: string;
+  showSettings: boolean = false;
+  posts: Post[];
   username = 'Username';
   password = 'Password';
 
-  addSett(setting){
-    this.settings.push(setting);
-  }
-
-  constructor(private PostsService: PostsService) {
+  constructor(private dataService: DataService) {
     this.title = 'Drive',
     this.desc = 'Office drive description',
     this.sidebar = {
@@ -32,25 +27,41 @@ export class ItemsComponent implements OnInit {
       profile: 'Profile'
     }
     this.settings = ['edit','delete','rename'];
-    this.showSettings = false;
+  }
 
-    this.PostsService.getPosts().subscribe(posts => {
+  submit(sett){
+    console.log('submit works');
+    this.settings.unshift(sett);
+    return false;
+  }
+  delete(setting){
+    for(let i = 0; i < this.settings.length; i++){
+      if(this.settings[i] == setting){
+        this.settings.splice(i, 1);
+      }
+    }
+  }
+
+  toggleSettings() {
+    this.showSettings = !this.showSettings;
+    // if (this.showSettings == true) {
+    //   this.showSettings = false;
+    // } else {
+    //   this.showSettings = true;
+    // }
+  }
+
+  ngOnInit() {
+    this.dataService.getPosts().subscribe(posts => {
+      console.log(posts);
       this.posts = posts;
     });
   }
-  toggleSettings() {
-    if (this.showSettings == true) {
-      this.showSettings = false;
-    } else {
-      this.showSettings = true;
-    }
-  }
-  ngOnInit() {
-    interface Post {
-      id: number;
-      title: string;
-      body: string;
-    }
-  }
+}
 
+interface Post {
+  id: number,
+  title: string,
+  body: string,
+  userId: number
 }
