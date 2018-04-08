@@ -1,0 +1,14 @@
+<h1 class="alert alert-warning">{{title_login}}</h1>
+<form>
+  <label>
+    <h4>{{label_username}}</h4>
+  </label>
+  <input type="text" name="username" [(ngModel)]="username" />
+  <br />
+  <label>
+    <h4>{{label_password}}</h4>
+  </label>
+  <input type="text" name="password" [(ngModel)]="password" />
+  <br />
+  <button class="flex btn btn-warning" (click)="loginUser()">{{btn_login}}</button>
+</form>

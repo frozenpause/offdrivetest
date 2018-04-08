@@ -1,7 +1,4 @@
 <div class="container">
-  <h1 class="alert alert">{{ title }}</h1>
-  <h3 class="alert">{{desc}}</h3>
-
   <form (submit)="submit(sett.value)">
     <div>
       <label for="sett">Add:</label>
@@ -16,15 +13,6 @@
     <li>{{sidebar.logout}}</li>
     <li>{{sidebar.profile}}</li>
   </ul>
-
-  <br />
-  <form>
-    <label>Username: .</label>
-    <input type="text" name="username" [(ngModel)]="username" />
-    <label>Password: .</label>
-    <input type="text" name="password" [(ngModel)]="password" />
-    <button class="flex btn btn-warning" (click)="loginUser()">Login</button>
-  </form>
 
   <br />
   <button class="flex btn" (click)="toggleSettings()">{{showSettings ? "Hide" : "Show" }}</button>
@@ -45,4 +33,5 @@
     <p>{{post.body}}</p>
     <p>{{post.userId}}</p>
   </div>
+  
 </div>

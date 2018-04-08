@@ -3,13 +3,11 @@ import { DataService } from '../services/data.service';
 import { post } from 'selenium-webdriver/http';
 
 @Component({
-  selector: 'app-items',
-  templateUrl: './items.component.html',
-  styleUrls: ['./items.component.css']
+  selector: 'app-testing',
+  templateUrl: './testing.component.html',
+  styleUrls: ['./testing.component.css']
 })
-export class ItemsComponent implements OnInit {
-  title: string;
-  desc: string;
+export class TestingComponent implements OnInit {
   sidebar: object;
   settings: string[];
   sett: string;
@@ -19,8 +17,6 @@ export class ItemsComponent implements OnInit {
   password = 'Password';
 
   constructor(private dataService: DataService) {
-    this.title = 'Drive',
-    this.desc = 'Office drive description',
     this.sidebar = {
       login: 'Login',
       logout: 'Logout',
