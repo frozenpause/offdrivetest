@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recent.component.css']
 })
 export class RecentComponent implements OnInit {
+  title_recent: string;
 
-  constructor() { }
+  constructor() {
+    this.title_recent = 'Recent';
+  }
 
   ngOnInit() {
   }

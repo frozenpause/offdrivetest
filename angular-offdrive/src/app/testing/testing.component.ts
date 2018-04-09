@@ -8,6 +8,7 @@ import { post } from 'selenium-webdriver/http';
   styleUrls: ['./testing.component.css']
 })
 export class TestingComponent implements OnInit {
+  title_testing: string;
   sidebar: object;
   settings: string[];
   sett: string;
@@ -17,6 +18,7 @@ export class TestingComponent implements OnInit {
   password = 'Password';
 
   constructor(private dataService: DataService) {
+    this.title_testing = 'Testing Page';
     this.sidebar = {
       login: 'Login',
       logout: 'Logout',

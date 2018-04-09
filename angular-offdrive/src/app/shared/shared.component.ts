@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shared.component.css']
 })
 export class SharedComponent implements OnInit {
+  title_shared: string;
 
-  constructor() { }
+  constructor() {
+    this.title_shared = 'Shared';
+  }
 
   ngOnInit() {
   }

@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./settings.component.css']
 })
 export class SettingsComponent implements OnInit {
+  title_settings: string;
 
-  constructor() { }
+  constructor() {
+    this.title_settings = 'Settings';
+  }
 
   ngOnInit() {
   }

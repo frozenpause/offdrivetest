@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./trash.component.css']
 })
 export class TrashComponent implements OnInit {
+  title_trash: string;
 
-  constructor() { }
+  constructor() {
+    this.title_trash = 'Trash';
+  }
 
   ngOnInit() {
   }

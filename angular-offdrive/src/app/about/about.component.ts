@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
+  title_about: string;
 
-  constructor() { }
+  constructor() {
+    this.title_about = 'About';
+  }
 
   ngOnInit() {
   }

@@ -6,11 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mydrive.component.css']
 })
 export class MydriveComponent implements OnInit {
-  title: string;
-  desc: string;
+  title_mydrive: string;
+  desc_mydrive: string;
   constructor() {
-    this.title = 'Drive',
-    this.desc = 'Office drive description'
+    this.title_mydrive = 'Drive',
+    this.desc_mydrive = 'Office drive description'
    }
 
   ngOnInit() {

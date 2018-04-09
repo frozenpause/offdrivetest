@@ -1,37 +1,41 @@
-<div class="container">
-  <form (submit)="submit(sett.value)">
-    <div>
-      <label for="sett">Add:</label>
-      <br />
-      <input type="text" #sett>
-    </div>
-  </form>
+<h1 class="alert alert">{{title_testing}}</h1>
 
-  <br />
-  <ul class="alert alert-warning">
-    <li>{{sidebar.login}}</li>
-    <li>{{sidebar.logout}}</li>
-    <li>{{sidebar.profile}}</li>
-  </ul>
-
-  <br />
-  <button class="flex btn" (click)="toggleSettings()">{{showSettings ? "Hide" : "Show" }}</button>
-  <br />
-  <div *ngIf="showSettings">
+<br />
+<div class="alert alert-warning">
+  <a routerLink="/mydrive">..Home (mydrive)</a>
+</div>
+<form (submit)="submit(sett.value)">
+  <div>
+    <label for="sett">Add:</label>
     <br />
-    <ul class="alert-success">
-      <li *ngFor="let setting of settings">
-        {{setting}} <button (click)="delete(setting)">x</button>
-      </li>
-    </ul>
+    <input type="text" #sett>
   </div>
+</form>
 
-  <hr />
-  <h1> Posts </h1>
+<br />
+<ul>
+  <li>{{sidebar.login}}</li>
+  <li>{{sidebar.logout}}</li>
+  <li>{{sidebar.profile}}</li>
+</ul>
+
+<br />
+<ul class="alert-success">
+  <li *ngFor="let setting of settings">
+    {{setting}}
+    <button (click)="delete(setting)">x</button>
+  </li>
+</ul>
+
+<hr />
+<h1> Posts </h1>
+<br />
+<button class="flex btn" (click)="toggleSettings()">{{showSettings ? "Hide" : "Show" }}</button>
+<p></p>
+<div *ngIf="showSettings">
   <div *ngFor="let post of posts">
     <h4>{{post.title}}</h4>
     <p>{{post.body}}</p>
     <p>{{post.userId}}</p>
   </div>
-  
 </div>
